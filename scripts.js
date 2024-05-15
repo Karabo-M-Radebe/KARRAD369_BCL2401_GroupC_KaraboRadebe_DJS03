@@ -130,8 +130,7 @@ html.headerSettings.addEventListener('click', () => {
 html.listClose.addEventListener('click', () => {
     html.listActive.open = false
 })
-
-html.settingsForm.addEventListener('submit', (event) => {
+const themeFunction = (event) => {
     event.preventDefault()
     const formData = new FormData(event.target)
     const { theme } = Object.fromEntries(formData)
@@ -145,7 +144,9 @@ html.settingsForm.addEventListener('submit', (event) => {
     }
     
     html.settingsOverlay.open = false
-})
+}
+
+html.settingsForm.addEventListener('submit', themeFunction)
 
 html.searchForm.addEventListener('submit', (event) => {
     event.preventDefault()
