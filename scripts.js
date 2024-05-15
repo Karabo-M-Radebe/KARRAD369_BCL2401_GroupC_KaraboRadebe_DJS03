@@ -3,7 +3,33 @@ import { books, authors, genres, BOOKS_PER_PAGE } from './data.js'
 let page = 1;
 let matches = books
 
-initializeDocument ()
+const collectedHTML = () => {
+    return{
+        listItems: document.querySelector('[data-list-items]'),
+        searchGenres: document.querySelector('[data-search-genres]'),
+        searchAuthors: document.querySelector('[data-search-authors]'),
+        themeSettings: document.querySelector('[data-settings-theme]'),
+        listButton: document.querySelector('[data-list-button]'),
+        searchCancel: document.querySelector('[data-search-cancel]'),
+        searchOverlay: document.querySelector('[data-search-overlay]'),
+        settingsCancel: document.querySelector('[data-settings-cancel]'),
+        settingsOverlay: document.querySelector('[data-settings-overlay]'),
+        headerSearch: document.querySelector('[data-header-search]'),
+        searchTitle: document.querySelector('[data-search-title]'),
+        headerSettings: document.querySelector('[data-header-settings]'),
+        listClose: document.querySelector('[data-list-close]'),
+        listActive: document.querySelector('[data-list-active]'),
+        settingsForm: document.querySelector('[data-settings-form]'),
+        searchForm: document.querySelector('[data-search-form]'),
+        listMessage: document.querySelector('[data-list-message]'),
+        listActive: document.querySelector('[data-list-active]'),
+        listBlur: document.querySelector('[data-list-blur]'),
+        listImage: document.querySelector('[data-list-image]'),
+        listTitle: document.querySelector('[data-list-title]'),
+        listSubtitle: document.querySelector('[data-list-subtitle]'),
+        listDescription: document.querySelector('[data-list-description]')
+    }
+}
 
 const initializeDocument = () => {
     const starting = document.createDocumentFragment()
@@ -26,12 +52,12 @@ const initializeDocument = () => {
     `
 
     starting.appendChild(element)
-}
+};
 
 document.querySelector('[data-list-items]').appendChild(starting)
-}
+};
 
-
+initializeDocument ();
 
 
 
