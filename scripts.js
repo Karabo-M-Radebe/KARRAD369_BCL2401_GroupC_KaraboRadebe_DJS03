@@ -3,9 +3,12 @@ import { books, authors, genres, BOOKS_PER_PAGE } from './data.js'
 let page = 1;
 let matches = books
 
-const starting = document.createDocumentFragment()
 
-for (const { author, id, image, title } of matches.slice(0, BOOKS_PER_PAGE)) {
+
+const initializeDocument = () => {
+    const starting = document.createDocumentFragment()
+
+    for (const { author, id, image, title } of matches.slice(0, BOOKS_PER_PAGE)) {
     const element = document.createElement('button')
     element.classList = 'preview'
     element.setAttribute('data-preview', id)
@@ -26,6 +29,11 @@ for (const { author, id, image, title } of matches.slice(0, BOOKS_PER_PAGE)) {
 }
 
 document.querySelector('[data-list-items]').appendChild(starting)
+}
+
+
+
+
 
 const genreHtml = document.createDocumentFragment()
 const firstGenreElement = document.createElement('option')
