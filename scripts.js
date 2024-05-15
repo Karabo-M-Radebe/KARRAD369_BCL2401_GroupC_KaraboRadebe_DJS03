@@ -30,6 +30,7 @@ const collectedHTML = () => {
         listDescription: document.querySelector('[data-list-description]')
     }
 }
+const html = collectedHTML();
 
 const initializeDocument = () => {
     const starting = document.createDocumentFragment()
