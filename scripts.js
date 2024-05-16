@@ -148,7 +148,7 @@ const themeFunction = (event) => {
 
 html.settingsForm.addEventListener('submit', themeFunction)
 
-const genreSearchMatch = (event) => {
+const bookSearchMatch = (event) => {
     
     event.preventDefault()
     const formData = new FormData(event.target)
@@ -216,7 +216,7 @@ const genreSearchMatch = (event) => {
     html.searchOverlay.open = false
 }
 
-html.searchForm.addEventListener('submit', genreSearchMatch)
+html.searchForm.addEventListener('submit', bookSearchMatch)
 
 const elementsPreview = () => {
     const fragment = document.createDocumentFragment()
