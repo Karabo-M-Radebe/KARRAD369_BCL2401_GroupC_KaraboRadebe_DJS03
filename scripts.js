@@ -148,7 +148,8 @@ const themeFunction = (event) => {
 
 html.settingsForm.addEventListener('submit', themeFunction)
 
-html.searchForm.addEventListener('submit', (event) => {
+const genreSearchMatch = (event) => {
+    
     event.preventDefault()
     const formData = new FormData(event.target)
     const filters = Object.fromEntries(formData)
@@ -213,7 +214,9 @@ html.searchForm.addEventListener('submit', (event) => {
 
     window.scrollTo({top: 0, behavior: 'smooth'});
     html.searchOverlay.open = false
-})
+}
+
+html.searchForm.addEventListener('submit', genreSearchMatch)
 
 const elementsPreview = () => {
     const fragment = document.createDocumentFragment()
