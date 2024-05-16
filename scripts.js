@@ -258,20 +258,20 @@ const addEventListeners = () => {
     html.settingsForm.addEventListener('submit', themeFunction),
     html.searchCancel.addEventListener('click', () => {
         html.searchOverlay.open = false
-    })
+    }),
     
     html.settingsCancel.addEventListener('click', () => {
         html.settingsOverlay.open = false
-    })
+    }),
     
     html.headerSearch.addEventListener('click', () => {
         html.searchOverlay.open = true 
         html.searchTitle.focus()
-    })
+    }),
     
     html.headerSettings.addEventListener('click', () => {
         html.settingsOverlay.open = true 
-    })
+    }),
     
     html.listClose.addEventListener('click', () => {
         html.listActive.open = false
