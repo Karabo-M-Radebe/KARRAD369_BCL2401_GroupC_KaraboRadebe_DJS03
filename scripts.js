@@ -215,7 +215,7 @@ html.searchForm.addEventListener('submit', (event) => {
     html.searchOverlay.open = false
 })
 
-html.listButton.addEventListener('click', () => {
+const elementsPreview = () => {
     const fragment = document.createDocumentFragment()
 
     for (const { author, id, image, title } of matches.slice(page * BOOKS_PER_PAGE, (page + 1) * BOOKS_PER_PAGE)) {
@@ -240,7 +240,8 @@ html.listButton.addEventListener('click', () => {
 
     html.listItems.appendChild(fragment)
     page += 1
-})
+}
+html.listButton.addEventListener('click', elementsPreview)
 
 html.listItems.addEventListener('click', (event) => {
     const pathArray = Array.from(event.path || event.composedPath())
