@@ -243,7 +243,7 @@ const elementsPreview = () => {
 }
 html.listButton.addEventListener('click', elementsPreview)
 
-html.listItems.addEventListener('click', (event) => {
+const bookInformation = (event) => {
     const pathArray = Array.from(event.path || event.composedPath())
     let active = null
 
@@ -270,4 +270,5 @@ html.listItems.addEventListener('click', (event) => {
         html.listSubtitle.innerText = `${authors[active.author]} (${new Date(active.published).getFullYear()})`
         html.listDescription.innerText = active.description
     }
-})
+}
+html.listItems.addEventListener('click', bookInformation)
