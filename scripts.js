@@ -60,8 +60,8 @@ html.listItems.appendChild(starting)
 
 initializeDocument ();
 
-
-const genreHtml = document.createDocumentFragment()
+const genreChoices = () => {
+    const genreHtml = document.createDocumentFragment()
 const firstGenreElement = document.createElement('option')
 firstGenreElement.value = 'any'
 firstGenreElement.innerText = 'All Genres'
@@ -75,6 +75,10 @@ for (const [id, name] of Object.entries(genres)) {
 }
 
 html.searchGenres.appendChild(genreHtml)
+};
+
+genreChoices();
+
 
 const authorsHtml = document.createDocumentFragment()
 const firstAuthorElement = document.createElement('option')
