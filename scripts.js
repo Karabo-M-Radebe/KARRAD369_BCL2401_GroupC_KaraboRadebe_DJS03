@@ -61,7 +61,6 @@ html.listItems.appendChild(starting)
 initializeDocument ();
 
 
-
 const genreHtml = document.createDocumentFragment()
 const firstGenreElement = document.createElement('option')
 firstGenreElement.value = 'any'
@@ -110,26 +109,6 @@ html.listButton.innerHTML = `
     <span class="list__remaining"> (${(matches.length - (page * BOOKS_PER_PAGE)) > 0 ? (matches.length - (page * BOOKS_PER_PAGE)) : 0})</span>
 `
 
-html.searchCancel.addEventListener('click', () => {
-    html.searchOverlay.open = false
-})
-
-html.settingsCancel.addEventListener('click', () => {
-    html.settingsOverlay.open = false
-})
-
-html.headerSearch.addEventListener('click', () => {
-    html.searchOverlay.open = true 
-    html.searchTitle.focus()
-})
-
-html.headerSettings.addEventListener('click', () => {
-    html.settingsOverlay.open = true 
-})
-
-html.listClose.addEventListener('click', () => {
-    html.listActive.open = false
-})
 const themeFunction = (event) => {
     event.preventDefault()
     const formData = new FormData(event.target)
@@ -146,7 +125,6 @@ const themeFunction = (event) => {
     html.settingsOverlay.open = false
 }
 
-html.settingsForm.addEventListener('submit', themeFunction)
 
 const bookSearchMatch = (event) => {
     
@@ -216,7 +194,6 @@ const bookSearchMatch = (event) => {
     html.searchOverlay.open = false
 }
 
-html.searchForm.addEventListener('submit', bookSearchMatch)
 
 const elementsPreview = () => {
     const fragment = document.createDocumentFragment()
@@ -244,7 +221,6 @@ const elementsPreview = () => {
     html.listItems.appendChild(fragment)
     page += 1
 }
-html.listButton.addEventListener('click', elementsPreview)
 
 const bookInformation = (event) => {
     const pathArray = Array.from(event.path || event.composedPath())
@@ -274,4 +250,32 @@ const bookInformation = (event) => {
         html.listDescription.innerText = active.description
     }
 }
-html.listItems.addEventListener('click', bookInformation)
+
+const addEventListeners = () => {
+    html.listItems.addEventListener('click', bookInformation),
+    html.listButton.addEventListener('click', elementsPreview),
+    html.searchForm.addEventListener('submit', bookSearchMatch),
+    html.settingsForm.addEventListener('submit', themeFunction),
+    html.searchCancel.addEventListener('click', () => {
+        html.searchOverlay.open = false
+    })
+    
+    html.settingsCancel.addEventListener('click', () => {
+        html.settingsOverlay.open = false
+    })
+    
+    html.headerSearch.addEventListener('click', () => {
+        html.searchOverlay.open = true 
+        html.searchTitle.focus()
+    })
+    
+    html.headerSettings.addEventListener('click', () => {
+        html.settingsOverlay.open = true 
+    })
+    
+    html.listClose.addEventListener('click', () => {
+        html.listActive.open = false
+    })
+}
+
+addEventListeners();
