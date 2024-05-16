@@ -58,7 +58,7 @@ const initializeDocument = () => {
 html.listItems.appendChild(starting)
 };
 
-initializeDocument ();
+
 
 const genreChoices = () => {
     const genreHtml = document.createDocumentFragment()
@@ -77,7 +77,7 @@ for (const [id, name] of Object.entries(genres)) {
 html.searchGenres.appendChild(genreHtml)
 };
 
-genreChoices();
+
 
 const authorChoices = () => {
     const authorsHtml = document.createDocumentFragment()
@@ -96,7 +96,7 @@ for (const [id, name] of Object.entries(authors)) {
 html.searchAuthors.appendChild(authorsHtml)
 }
 
-authorChoices();
+
 
 const systemPreferredTheme = () => {
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -110,7 +110,7 @@ const systemPreferredTheme = () => {
 }
 }
 
-systemPreferredTheme();
+
 
 const showMoreButton = () => {
     html.listButton.innerText = `Show more (${books.length - BOOKS_PER_PAGE})`
@@ -121,7 +121,6 @@ const showMoreButton = () => {
     <span class="list__remaining"> (${(matches.length - (page * BOOKS_PER_PAGE)) > 0 ? (matches.length - (page * BOOKS_PER_PAGE)) : 0})</span>
 `
 }
-showMoreButton();
 
 
 const themeFunction = (event) => {
@@ -293,4 +292,14 @@ const addEventListeners = () => {
     })
 }
 
-addEventListeners();
+
+const runApp = () => {
+    initializeDocument ();
+    genreChoices();
+    authorChoices();
+    systemPreferredTheme();
+    showMoreButton();
+    addEventListeners();
+}
+
+runApp();
