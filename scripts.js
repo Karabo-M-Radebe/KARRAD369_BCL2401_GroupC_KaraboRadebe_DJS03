@@ -98,7 +98,8 @@ html.searchAuthors.appendChild(authorsHtml)
 
 authorChoices();
 
-if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+const systemPreferredTheme = () => {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     html.themeSettings.value = 'night'
     document.documentElement.style.setProperty('--color-dark', '255, 255, 255');
     document.documentElement.style.setProperty('--color-light', '10, 10, 20');
@@ -107,6 +108,9 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
     document.documentElement.style.setProperty('--color-dark', '10, 10, 20');
     document.documentElement.style.setProperty('--color-light', '255, 255, 255');
 }
+}
+
+systemPreferredTheme();
 
 const showMoreButton = () => {
     html.listButton.innerText = `Show more (${books.length - BOOKS_PER_PAGE})`
