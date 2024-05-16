@@ -62,10 +62,10 @@ initializeDocument ();
 
 const genreChoices = () => {
     const genreHtml = document.createDocumentFragment()
-const firstGenreElement = document.createElement('option')
-firstGenreElement.value = 'any'
-firstGenreElement.innerText = 'All Genres'
-genreHtml.appendChild(firstGenreElement)
+    const firstGenreElement = document.createElement('option')
+    firstGenreElement.value = 'any'
+    firstGenreElement.innerText = 'All Genres'
+    genreHtml.appendChild(firstGenreElement)
 
 for (const [id, name] of Object.entries(genres)) {
     const element = document.createElement('option')
@@ -79,12 +79,12 @@ html.searchGenres.appendChild(genreHtml)
 
 genreChoices();
 
-
-const authorsHtml = document.createDocumentFragment()
-const firstAuthorElement = document.createElement('option')
-firstAuthorElement.value = 'any'
-firstAuthorElement.innerText = 'All Authors'
-authorsHtml.appendChild(firstAuthorElement)
+const authorChoices = () => {
+    const authorsHtml = document.createDocumentFragment()
+    const firstAuthorElement = document.createElement('option')
+    firstAuthorElement.value = 'any'
+    firstAuthorElement.innerText = 'All Authors'
+    authorsHtml.appendChild(firstAuthorElement)
 
 for (const [id, name] of Object.entries(authors)) {
     const element = document.createElement('option')
@@ -94,6 +94,9 @@ for (const [id, name] of Object.entries(authors)) {
 }
 
 html.searchAuthors.appendChild(authorsHtml)
+}
+
+authorChoices();
 
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     html.themeSettings.value = 'night'
