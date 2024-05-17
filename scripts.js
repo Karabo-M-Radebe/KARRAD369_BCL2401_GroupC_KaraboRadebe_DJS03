@@ -67,7 +67,6 @@ html.listItems.appendChild(container)
 };
 
 
-
 const genreChoices = () => {
     const genreHtml = document.createDocumentFragment()
     const firstGenreElement = document.createElement('option')
